@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import SubChildComp from "./component/SubChildComp";
 import ChildComp from "./component/ChildComp";
 
 
@@ -15,7 +14,6 @@ function App() {
         <h1><span class="badge bg-primary">Counter App using Redux</span></h1>
         </div>
         <ChildComp/>
-      <SubChildComp/>
       </div>     
     </div>
   );

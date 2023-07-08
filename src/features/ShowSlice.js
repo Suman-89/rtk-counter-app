@@ -14,13 +14,17 @@ export const showSlice = createSlice({
             state.value = state.value +1 ;
         },
         decrement:(state) =>{
+            if(state.value>0){
             state.value = state.value -1 ;
+            }
         },
         icrBy10: (state,actions)=>{
             state.value = state.value + actions.payload ;
         },
         dcrBy10: (state,actions)=>{
+            if(state.value >0){
             state.value = state.value - actions.payload ;
+            }
         },
     },
 })
