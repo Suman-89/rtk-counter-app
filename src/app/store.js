@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import  showData  from "../features/ShowSlice"; //showData should not be in curly braces
+import  userList  from "../features/DataFetchSlice";
 
 export const store = configureStore({
     reducer:{
         show : showData, 
+        user : userList,
     }
 })
 //data is accessed from show 
