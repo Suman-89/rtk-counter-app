@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
 import ChildComp from "./component/ChildComp";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserList from "./component/crudApp/UserList";
+import NavBar from "./component/NavBar";
 
 
 
@@ -10,10 +13,13 @@ function App() {
   return (
     <div className="App">
       <div className="container my-4">
-        <div className="col-md-6 my-4" style={{margin:'0 auto 0',fontWeight:'600'}}>
-        <h1><span class="badge bg-primary">Counter App using Redux</span></h1>
-        </div>
-        <ChildComp/>
+        <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route exact path="/" element={<ChildComp/>}></Route>
+          <Route exact path="/user" element={<UserList/>}></Route>
+        </Routes>
+        </BrowserRouter>
       </div>     
     </div>
   );
