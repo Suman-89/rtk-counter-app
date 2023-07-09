@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import axios from "axios";
 
 //action defined
-export const getUsers = createAsyncThunk("user", async () => {
-  await fetch("https://jsonplaceholder.typicode.com/users")
-    .then((res) => res.json())
+export const getUsers = createAsyncThunk("userList", async () => {
+  await axios
+    .get("https://jsonplaceholder.typicode.com/users")
     .then((result) => {
       console.log("result-->", result);
       return result;
@@ -17,36 +17,35 @@ export const getUsers = createAsyncThunk("user", async () => {
 export const userList = createSlice({
   name: "userList",
   initialState: {
-    user: [],
+    users: [],
     loading: false,
     error: null,
   },
-  extraReducers: (builder)=>{
+  extraReducers: (builder) => {
     builder
-    .addCase(getUsers.pending,(state)=>{
-        state.loading = true
-    })
-    .addCase(getUsers.fulfilled,(state,action)=>{
-        state.loading = false
-        state.user = action.payload 
-    })
-    .addCase(getUsers.rejected,(state,action)=>{
+      .addCase(getUsers.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getUsers.fulfilled, (state, actions) => {
+        state.users = actions.payload;
         state.loading = false;
-        state.error = action.payload;
-    })
+      })
+      .addCase(getUsers.rejected, (state, actions) => {
+        state.loading = false;
+        state.error = actions.payload;
+      });
     // [getUsers.pending]: (state)=>{
     //     state.loading = true
     // },
     // [getUsers.fulfilled]: (state,action)=>{
     //     state.loading = false
-    //     state.users = action.payload 
+    //     state.users = action.payload
     // },
     // [getUsers.rejected]: (state,action)=>{
     //     state.loading = false;
     //     state.error = action.payload;
     // }
-  }
+  },
 });
 
-// export const {fetchUser} = userList.action;
-export default userList.reducer ;
+export default userList.reducer;

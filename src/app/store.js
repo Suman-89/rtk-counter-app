@@ -5,7 +5,7 @@ import  userList  from "../features/DataFetchSlice";
 export const store = configureStore({
     reducer:{
         show : showData, 
-        user : userList,
+        users : userList,
     }
 })
 //data is accessed from show 
