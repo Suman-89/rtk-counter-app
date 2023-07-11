@@ -12,44 +12,49 @@ const SubChildComp = () => {
 
   return (
     <>
-      <div className="card border shadow">
+      <div
+        className="card border shadow"
+        style={{ width: "60%", margin: "0 auto 0" }}
+      >
         <div className="card-body">
-          <h1 className="card-title">Counter 2 : </h1>
+          <h4 className="card-title">Digit window </h4>
           <h1>
-            <span className="badge bg-success border shadow">{initialData}</span>
+            <span className="badge bg-secondary">{initialData}</span>
           </h1>
         </div>
-          <div className="container my-3 ">
-          <button
-          className="btn btn-danger rounded-pill"
-          onClick={() => sendData(increment())}
-        >
-          Value Up
-        </button>
-        &nbsp;&nbsp;
-        <button
-          className="btn btn-secondary rounded-pill"
-          onClick={() => sendData(decrement())}
-        >
-          Value Down
-        </button>
-        &nbsp;&nbsp;
-        <button
-          className="btn btn-info rounded-pill"
-          onClick={() => sendData(icrBy10(10))}
-        >
-          Increase by 10
-        </button>
-        &nbsp;&nbsp;
-        <button
-          className="btn btn-warning rounded-pill"
-          onClick={() => sendData(dcrBy10(10))}
-        >
-          Decrease by 10
-        </button>
+        <div className="container my-3 ">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              onClick={() => sendData(increment())}
+            >
+              Value Up
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              onClick={() => sendData(decrement())}
+            >
+              Value Down
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-success"
+              onClick={() => sendData(icrBy10(10))}
+            >
+              Increase by 10
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              onClick={() => sendData(dcrBy10(10))}
+            >
+              Decrease by 10
+            </button>
           </div>
         </div>
-       
+      </div>
     </>
   );
 };
