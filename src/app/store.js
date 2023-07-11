@@ -6,7 +6,7 @@ export const store = configureStore({
     reducer:{
         show : showData, 
         users : userList,
-    }
-})
+    },
+});
 //data is accessed from show 
 //reducer is the only thing that changes the value of the store. 
