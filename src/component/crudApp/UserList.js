@@ -1,15 +1,30 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../features/actions/dataFetch";
+import { getSingleUser, getUsers, userDelete } from "../../features/actions/dataFetch";
+import { useNavigate } from "react-router-dom";
 
 const UserList = () => {
   const { users, loading } = useSelector((state) => state.users);
 
   const getData = useDispatch();
+  const navToUser = useNavigate()
 
   useEffect(() => {
     getData(getUsers());
   }, []);
+
+  const viewEmp = (vId) =>{
+    console.log('vID:',vId);
+    navToUser(`/singleuser/${vId}`);
+    getData(getSingleUser(vId));
+  }
+  const delEmp = (del_id) =>{
+    console.log('delId USerList -->',del_id);
+    if(window.confirm('Do you want to delete ?')){
+      getData(userDelete(del_id));
+    }
+    getData(getUsers());
+  }
 
   return (
     <>
@@ -27,7 +42,7 @@ const UserList = () => {
           <table className="table">
             <thead>
               <tr>
-                <th scope="col">Id No.</th>
+                <th scope="col">SL. No.</th>
                 <th scope="col">Name</th>
                 <th scope="col">Phone No.</th>
                 <th scope="col">Actions</th>
@@ -37,7 +52,7 @@ const UserList = () => {
               users.map((data, index) => (
                 <tbody key={index}>
                   <tr>
-                    <th scope="row">{data.id}.</th>
+                    <th scope="row">{index+1}.</th>
                     <td>{data.name}</td>
                     <td>{data.phone}</td>
                     <td>
@@ -49,6 +64,7 @@ const UserList = () => {
                         <button
                           type="button"
                           className="btn btn-outline-primary"
+                          onClick={()=>viewEmp(data.id)}
                         >
                           View
                         </button>
@@ -61,6 +77,7 @@ const UserList = () => {
                         <button
                           type="button"
                           className="btn btn-outline-danger"
+                          onClick={()=>delEmp(data.id)}
                         >
                           Delete
                         </button>

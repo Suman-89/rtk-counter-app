@@ -4,6 +4,7 @@ import ChildComp from "./component/ChildComp";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserList from "./component/crudApp/UserList";
 import NavBar from "./component/NavBar";
+import SingleUser from "./component/crudApp/SingleUser";
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<ChildComp/>}></Route>
           <Route exact path="/user" element={<UserList/>}></Route>
+          <Route exact path="/singleuser/:vid" element={<SingleUser/>}></Route>
         </Routes>
         </BrowserRouter>
       </div>     
