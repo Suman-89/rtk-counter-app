@@ -10,7 +10,7 @@ export const getUsers = createAsyncThunk("userList", async () => {
     }
   });
 
-export const getSingleUser = createAsyncThunk("userDetail",async(userId)=>{
+export const getSingleUser = createAsyncThunk("userDetail",async (userId)=>{
   // console.log('userId_action :',userId);
   const userData = await rootApi.get(`/users/${userId}`);
   // console.log('userData-action:',userData);
@@ -19,7 +19,7 @@ export const getSingleUser = createAsyncThunk("userDetail",async(userId)=>{
   }
 })
 
-export const userDelete = createAsyncThunk("userDelete",async(delId)=>{
+export const userDelete = createAsyncThunk("userDelete",async (delId)=>{
   console.log('delId_action-->',delId);
   const delUser = await rootApi.delete(`/users/${delId}`);
   console.log('delUser-->',delUser);

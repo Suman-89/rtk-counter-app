@@ -26,7 +26,7 @@ const SubChildComp = () => {
           <div class="btn-group" role="group" aria-label="Basic example">
             <button
               type="button"
-              class="btn btn-outline-primary"
+              className="btn btn-outline-primary"
               onClick={() => sendData(increment())}
             >
               Value Up

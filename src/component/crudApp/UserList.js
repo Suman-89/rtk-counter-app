@@ -25,6 +25,7 @@ const UserList = () => {
     }
     getData(getUsers());
   }
+  console.log('users-->',users);
 
   return (
     <>
