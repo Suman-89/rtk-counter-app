@@ -31,8 +31,15 @@ const UserList = () => {
     <>
       <div>
         <h2>
-          <span className="badge bg-warning">User List</span>
+          <span className="badge bg-warning">User List Using RTK</span>
         </h2>
+      </div>
+      <div className="row my-4" style={{width:'8rem',margin:'0 auto 0'}}>
+        <button type="button" className="btn btn-info border shadow"
+        onClick={()=>navToUser(`/create/newuser`)}
+        >
+          Add New (+)
+        </button>
       </div>
       <div className="container my-4">
         {loading === true ? (
