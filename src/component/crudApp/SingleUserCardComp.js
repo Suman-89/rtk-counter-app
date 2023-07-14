@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SingleUserCardComp = ({ singleEmployee }) => {
   return (
     <div>
-      <div className="card">
+      <div className="card" style={{width:'60%', margin:'0 auto 0'}}>
         <div className="card-body">
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
