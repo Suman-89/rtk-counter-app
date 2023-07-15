@@ -94,14 +94,14 @@ const AddNewUser = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="username"
+                  placeholder="Email"
                   aria-label="Username"
                   value={createUser.userEmail}
                   onChange={(e) =>
                     setCreateUser({ ...createUser, userEmail: e.target.value })
                   }
                 />
-                <span className="input-group-text">@abcmail.com</span>
+                <span className="input-group-text">@</span>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ const AddNewUser = () => {
                   className="form-control"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-default"
-                  placeholder="Phone_Number"
+                  placeholder="Phone Number"
                   value={createUser.userPhone}
                   onChange={(e) =>
                     setCreateUser({ ...createUser, userPhone: e.target.value })
@@ -149,6 +149,7 @@ const AddNewUser = () => {
                     })
                   }
                 />
+                <span className="input-group-text">.com</span>
               </div>
             </div>
           </div>

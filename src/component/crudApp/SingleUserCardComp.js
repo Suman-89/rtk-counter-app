@@ -35,11 +35,11 @@ const SingleUserCardComp = ({ singleEmployee }) => {
               <div className="row">
                 <div className="col-sm-6">
                   <span>Apartment :</span>
-                  {/* <b>{singleEmployee.address.suite}</b> */}
+                  <b>{singleEmployee?.address?.suite}</b>
                 </div>
                 <div className="col-sm-6">
                   <span>Street :</span>
-                  {/* <b>{singleEmployee.address.street}</b> */}
+                  <b>{singleEmployee?.address?.street}</b>
                 </div>
               </div>
             </li>
@@ -47,11 +47,11 @@ const SingleUserCardComp = ({ singleEmployee }) => {
               <div className="row">
                 <div className="col-sm-6">
                   <span>City :</span>
-                  {/* <b>{singleEmployee.address.city}</b> */}
+                  <b>{singleEmployee?.address?.city}</b>
                 </div>
                 <div className="col-sm-6">
                   <span>Zipcode :</span>
-                  {/* <b>{singleEmployee.address.zipcode}</b> */}
+                  <b>{singleEmployee?.address?.zipcode}</b>
                 </div>
               </div>
             </li>

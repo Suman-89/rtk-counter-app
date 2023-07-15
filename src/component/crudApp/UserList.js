@@ -35,7 +35,7 @@ const UserList = () => {
         </h2>
       </div>
       <div className="row my-4" style={{width:'8rem',margin:'0 auto 0'}}>
-        <button type="button" className="btn btn-info border shadow"
+        <button type="button" className="btn btn-primary"
         onClick={()=>navToUser(`/create/newuser`)}
         >
           Add New (+)
@@ -64,32 +64,28 @@ const UserList = () => {
                     <td>{data.name}</td>
                     <td>{data.phone}</td>
                     <td>
-                      <div
-                        className="btn-group"
-                        role="group"
-                        aria-label="Basic outlined example"
-                      >
+                     
                         <button
                           type="button"
                           className="btn btn-outline-primary"
                           onClick={()=>viewEmp(data.id)}
                         >
                           View
-                        </button>
+                        </button>&nbsp;
                         <button
                           type="button"
                           className="btn btn-outline-success"
                         >
                           Edit
-                        </button>
+                        </button>&nbsp;
                         <button
                           type="button"
-                          className="btn btn-outline-danger"
+                          className="btn btn-danger"
                           onClick={()=>delEmp(data.id)}
                         >
                           Delete
                         </button>
-                      </div>
+                      
                     </td>
                   </tr>
                 </tbody>
