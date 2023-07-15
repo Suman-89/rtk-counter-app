@@ -27,6 +27,14 @@ const UserList = () => {
   }
   console.log('users-->',users);
 
+  const editClick = eData =>{
+    console.log('eData--->',eData);
+    navToUser(`/update/user/${eData.id}`,{
+      state : {singleUserData : eData}
+    })
+    getData(getSingleUser(eData.id))
+  }
+
   return (
     <>
       <div>
@@ -75,6 +83,7 @@ const UserList = () => {
                         <button
                           type="button"
                           className="btn btn-outline-success"
+                          onClick={()=>editClick(data)}
                         >
                           Edit
                         </button>&nbsp;
