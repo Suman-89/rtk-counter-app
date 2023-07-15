@@ -6,7 +6,7 @@ export const getUsers = createAsyncThunk("userList", async () => {
     const response = await rootApi.get(`/users`);
     console.log('response-->',response);
     if(response.status === 200){
-    return response.data;
+    return response.data.reverse();
     }
   });
 
@@ -16,6 +16,15 @@ export const getSingleUser = createAsyncThunk("userDetail",async (userId)=>{
   // console.log('userData-action:',userData);
   if(userData.status === 200){
   return userData.data;
+  }
+})
+
+export const createUserAction = createAsyncThunk("user/create",async (newUserData)=>{
+  console.log('newUserData_in_action-->',newUserData);
+  const addedNewUser = await rootApi.post(`/users/`,newUserData);
+  console.log('newUser-->',addedNewUser);
+  if(addedNewUser.status===201){
+  return addedNewUser.data;
   }
 })
 

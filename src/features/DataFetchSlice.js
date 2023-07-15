@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getSingleUser, getUsers, userDelete } from "./actions/dataFetch";
+import { createUserAction, getSingleUser, getUsers, userDelete } from "./actions/dataFetch";
 
 //action defined
 const initialState = {
@@ -39,6 +39,21 @@ const userList = createSlice({
         state.error = action.payload;
       });
       //view employee end //
+
+      //Create new user start//
+      builder.addCase(createUserAction.pending, (state) => {
+        state.loading = true;
+      });
+      builder.addCase(createUserAction.fulfilled, (state, action) => {
+        state.users = [...state.users, action.payload];
+        state.loading = false;
+      });
+      builder.addCase(createUserAction.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+      //Create new user end//
+
       //delete func start //
       builder.addCase(userDelete.pending, (state) => {
         state.loading = true;
