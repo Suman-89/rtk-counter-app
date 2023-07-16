@@ -27,6 +27,14 @@ export const createUserAction = createAsyncThunk("user/create",async (newUserDat
   return addedNewUser.data;
   }
 })
+export const updateUserAction = createAsyncThunk("user/update",async({empId,userData})=>{
+  console.log("empId:",empId,'updatedData:',userData);
+  const updatedUserData = await rootApi.put(`/users/${empId}`,userData);
+  console.log('updatedUserData:',updatedUserData);
+  if(updatedUserData.status === 200){
+  return updatedUserData.data;
+  }
+})
 
 export const userDelete = createAsyncThunk("userDelete",async (delId)=>{
   console.log('delId_action-->',delId);

@@ -93,27 +93,11 @@
       }
     },
     {
-      "id": 6,
-      "name": "Mrs. Dennis Schulist",
-      "username": "Leopoldo_Corkery",
+      "name": "Mrs. Dennis Schulist12",
       "email": "Karley_Dach@jasper.info",
-      "address": {
-        "street": "Norberto Crossing",
-        "suite": "Apt. 950",
-        "city": "South Christy",
-        "zipcode": "23505-1337",
-        "geo": {
-          "lat": "-71.4197",
-          "lng": "71.7478"
-        }
-      },
       "phone": "1-477-935-8478 x6430",
       "website": "ola.org",
-      "company": {
-        "name": "Considine-Lockman",
-        "catchPhrase": "Synchronised bottom-line interface",
-        "bs": "e-enable innovative applications"
-      }
+      "id": 6
     },
     {
       "id": 7,
@@ -208,11 +192,11 @@
       }
     },
     {
-      "id": 1689406191625,
-      "name": "Suman Mukherjee",
+      "name": "suman Bond Mukherjee",
       "email": "suman.mukherjee01@gmail.com",
       "phone": "08482049212",
-      "website": "suman.com"
+      "website": "suman.com",
+      "id": 1689406191625
     }
   ]
 }

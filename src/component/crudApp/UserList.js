@@ -7,7 +7,7 @@ const UserList = () => {
   const { users, loading } = useSelector((state) => state.users);
 
   const getData = useDispatch();
-  const navToUser = useNavigate()
+  const navigate = useNavigate()
 
   useEffect(() => {
     getData(getUsers());
@@ -15,7 +15,7 @@ const UserList = () => {
 
   const viewEmp = (vId) =>{
     console.log('vID:',vId);
-    navToUser(`/singleuser/${vId}`);
+    navigate(`/singleuser/${vId}`);
     getData(getSingleUser(vId));
   }
   const delEmp = (del_id) =>{
@@ -27,12 +27,12 @@ const UserList = () => {
   }
   console.log('users-->',users);
 
-  const editClick = eData =>{
+  const editClick = (eData) =>{
     console.log('eData--->',eData);
-    navToUser(`/update/user/${eData.id}`,{
-      state : {singleUserData : eData}
-    })
-    getData(getSingleUser(eData.id))
+    navigate(`/update/user/${eData.id}`,{
+      state: { singleUserData : eData },
+    });
+    getData(getSingleUser(eData.id));
   }
 
   return (
@@ -44,7 +44,7 @@ const UserList = () => {
       </div>
       <div className="row my-4" style={{width:'8rem',margin:'0 auto 0'}}>
         <button type="button" className="btn btn-primary"
-        onClick={()=>navToUser(`/create/newuser`)}
+        onClick={()=>navigate(`/create/newuser`)}
         >
           Add New (+)
         </button>

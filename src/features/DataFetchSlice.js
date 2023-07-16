@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createUserAction, getSingleUser, getUsers, userDelete } from "./actions/dataFetch";
+import { createUserAction, getSingleUser, getUsers, updateUserAction, userDelete } from "./actions/dataFetch";
 
 //action defined
 const initialState = {
@@ -53,6 +53,19 @@ const userList = createSlice({
         state.error = action.payload;
       });
       //Create new user end//
+      //Update user start//
+      builder.addCase(updateUserAction.pending, (state) => {
+        state.loading = true;
+      });
+      builder.addCase(updateUserAction.fulfilled, (state, action) => {
+        state.users = [...state.users, action.payload];
+        state.loading = false;
+      });
+      builder.addCase(updateUserAction.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+      //Update user end//
 
       //delete func start //
       builder.addCase(userDelete.pending, (state) => {
