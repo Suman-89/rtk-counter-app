@@ -17,11 +17,15 @@ const UserEdit = () => {
     uEmail: state?.singleUserData?.email || "",
     uPhone: state?.singleUserData?.phone || "",
     uWebsite: state?.singleUserData?.website || "",
+    uCity: state?.singleUserData?.city || "",
+    uApartment: state?.singleUserData?.suite || "",
+    uStreet: state?.singleUserData?.street || "",
+    uZipcode: state?.singleUserData?.zipcode || ""
   });
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
 
-  // console.log('userUpdate.uName:',userUpdate.uName);
+  // console.log('userUpdate.uCity:',userUpdate.uCity);
 
   useEffect(() => {
     dispatchUser(getSingleUser(eid));
@@ -32,7 +36,11 @@ const UserEdit = () => {
       !userUpdate.uName ||
       !userUpdate.uEmail ||
       !userUpdate.uPhone ||
-      !userUpdate.uWebsite
+      !userUpdate.uWebsite ||
+      !userUpdate.uApartment ||
+      !userUpdate.uStreet ||
+      !userUpdate.uCity ||
+      !userUpdate.uZipcode
     ) {
       setStatus(false);
       setMessage("Field can not be empty !");
@@ -45,6 +53,10 @@ const UserEdit = () => {
         email: userUpdate.uEmail,
         phone: userUpdate.uPhone,
         website: userUpdate.uWebsite,
+        suite : userUpdate.uApartment,
+        street :userUpdate.uStreet,
+        city :userUpdate.uCity,
+        zipcode : userUpdate.uZipcode
       };
       console.log("newUserData-->", newUserData);
       // updateUserAction
@@ -148,6 +160,70 @@ const UserEdit = () => {
                   value={userUpdate?.uWebsite}
                   onChange={(e) =>
                     setUserUpdate({ ...userUpdate, uWebsite: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-5">
+              <div className="input-group mb-3">
+                <span className="input-group-text">Apartment :</span>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Apartment"
+                  aria-label="Username"
+                  value={userUpdate?.uApartment}
+                  onChange={(e) =>
+                    setUserUpdate({ ...userUpdate, uApartment: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            <div className="col-md-7">
+              <div className="input-group mb-3">
+                <span className="input-group-text">Street :</span>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Street"
+                  aria-label="Username"
+                  value={userUpdate?.uStreet}
+                  onChange={(e) =>
+                    setUserUpdate({ ...userUpdate, uStreet: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-5">
+              <div className="input-group mb-3">
+                <span className="input-group-text">City :</span>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="City"
+                  aria-label="Username"
+                  value={userUpdate?.uCity}
+                  onChange={(e) =>
+                    setUserUpdate({ ...userUpdate, uCity: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            <div className="col-md-7">
+              <div className="input-group mb-3">
+                <span className="input-group-text">Zipcode :</span>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Zipcode"
+                  aria-label="Username"
+                  value={userUpdate?.uZipcode}
+                  onChange={(e) =>
+                    setUserUpdate({ ...userUpdate, uZipcode: e.target.value })
                   }
                 />
               </div>

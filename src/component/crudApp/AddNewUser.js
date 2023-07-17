@@ -11,6 +11,10 @@ const AddNewUser = () => {
     userEmail: "",
     userPhone: "",
     userWebsite: "",
+    userCity:"",
+    userApartment:"",
+    userStreet:"",
+    userZipcode:""
   });
   const [message, setMessage] = useState("");
   const [errStatus, setErrStatus] = useState(false);
@@ -20,7 +24,11 @@ const AddNewUser = () => {
       !createUser.userName ||
       !createUser.userEmail ||
       !createUser.userPhone ||
-      !createUser.userWebsite
+      !createUser.userWebsite ||
+      !createUser.userApartment||
+      !createUser.userStreet||
+      !createUser.userCity||
+      !createUser.userZipcode
     ) {
       setErrStatus(true);
       setMessage("Blank field *");
@@ -35,6 +43,10 @@ const AddNewUser = () => {
         email: createUser.userEmail,
         phone: createUser.userPhone,
         website: createUser.userWebsite,
+        suite:createUser.userApartment,
+        street:createUser.userStreet,
+        city:createUser.userCity,
+        zipcode:createUser.userZipcode
       };
       dispatch(createUserAction(newUser))
       .then((res) => {
@@ -65,6 +77,7 @@ const AddNewUser = () => {
         className="card border shadow"
         style={{ width: "80%", margin: "0 auto 0" }}
       >
+        {/* Basic info start */}
         <div className="row">
           <h4 className="display-5">New User</h4>
         </div>
@@ -153,6 +166,91 @@ const AddNewUser = () => {
               </div>
             </div>
           </div>
+        {/* Basic info end */}
+        {/* Address info start */}
+        <div className="row">
+            <div className="col-md-5">
+              <div className="input-group mb-3">
+                <span className="input-group-text" id="basic-addon1">
+                  Apartment :
+                </span>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Apartment"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                  value={createUser.userApartment}
+                  onChange={(e) =>
+                    setCreateUser({ ...createUser, userApartment: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            <div className="col-md-7">
+              <div className="input-group mb-3">
+                <span className="input-group-text">Street :</span>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Street"
+                  aria-label="Username"
+                  value={createUser.userStreet}
+                  onChange={(e) =>
+                    setCreateUser({ ...createUser, userStreet: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-5">
+              <div className="input-group mb-3">
+                <span
+                  className="input-group-text"
+                  id="inputGroup-sizing-default"
+                >
+                  City :
+                </span>
+                <input
+                  type="text"
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default"
+                  placeholder="City"
+                  value={createUser.userCity}
+                  onChange={(e) =>
+                    setCreateUser({ ...createUser, userCity: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            <div className="col-md-7">
+              <div className="input-group mb-3">
+                <span
+                  className="input-group-text"
+                  id="inputGroup-sizing-default"
+                >
+                  Zipcode :
+                </span>
+                <input
+                  type="text"
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default"
+                  placeholder="Zipcode"
+                  value={createUser.userZipcode}
+                  onChange={(e) =>
+                    setCreateUser({
+                      ...createUser,
+                      userZipcode: e.target.value,
+                    })
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        {/* Address info end */}
           <div
             className="row my-4"
             style={{margin: "0 auto 0",justifyContent:'center'}}
